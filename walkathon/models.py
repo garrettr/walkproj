@@ -10,7 +10,10 @@ class Participant(models.Model):
     statement = models.TextField()
     # picture
 
-    active = models.BooleanField()
+    def __unicode__(self):
+        return u'%s %s' % (self.first_name, self.last_name)
+
+    active = models.BooleanField(default=True)
     created_on = models.DateTimeField()
 
 class Sponsor(models.Model):
@@ -21,5 +24,8 @@ class Sponsor(models.Model):
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     is_sponsoring = models.ForeignKey(Participant)
 
-    active = models.BooleanField()
+    active = models.BooleanField(default=True)
     created_on = models.DateTimeField()
+
+    def __unicode__(self):
+        return u'%s %s' % (self.first_name, self.last_name)
