@@ -2,4 +2,16 @@
 
 {% block title %}Home |{% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+
+<h2>Recently Registered:</h2>
+{% if recent_participants %}
+    <ul>
+    {% for p in recent_participants %}
+    <li>{{p.first_name}} {{p.last_name}}</li>
+    {% endfor %}
+{% else %}
+<p>Nobody's registered yet!</p>
+{% endif %}
+
+{% endblock %}
