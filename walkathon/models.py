@@ -1,4 +1,5 @@
 from django.db import models
+# import datetime
 
 # TODO  More contact info (address, phone #)?
 
@@ -14,6 +15,9 @@ class Participant(models.Model):
         return u'%s %s' % (self.first_name, self.last_name)
 
     active = models.BooleanField(default=True)
+    # auto time stamp
+    # ?
+    # created_on = models.DateTimeField(default=datetime.datetime.now())
     created_on = models.DateTimeField()
 
 class Sponsor(models.Model):
