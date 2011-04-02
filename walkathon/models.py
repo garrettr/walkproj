@@ -24,6 +24,9 @@ class Participant(models.Model):
     def get_absolute_url(self):
         return ('walkathon.views.participant_detail', [str(self.id)])
 
+    def full_name(self):
+        return u'%s %s' % (self.first_name, self.last_name)
+
 class Sponsor(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -41,3 +44,6 @@ class Sponsor(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('walkathon.views.sponsor_detail', [str(self.id)])
+
+    def full_name(self):
+        return u'%s %s' % (self.first_name, self.last_name)
