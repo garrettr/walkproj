@@ -10,3 +10,19 @@ def home(request):
     recent_participants = Participant.objects.all().order_by('created_on')[:5]
     return render_to_response('walkathon/home.html', 
             {'recent_participants': recent_participants})
+
+def participant_detail(request, pid):
+    '''
+    Display a single participant's information.
+    '''
+    p = Participant.objects.get(id=pid)
+    return render_to_response('walkathon/participant_detail.html',
+            {'p': p})
+
+def sponsor_detail(request, sid):
+    '''
+    Display a single sponsor's information.
+    '''
+    s = Sponsor.objects.get(id=sid)
+    return render_to_response('walkathon/sponsor_detail.html',
+            {'s': s})

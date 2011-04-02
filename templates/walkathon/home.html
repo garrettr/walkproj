@@ -8,7 +8,7 @@
 {% if recent_participants %}
     <ul>
     {% for p in recent_participants %}
-    <li>{{p.first_name}} {{p.last_name}}</li>
+    <li><a href="{{p.get_absolute_url}}">{{p.first_name}} {{p.last_name}}</a></li>
     {% endfor %}
 {% else %}
 <p>Nobody's registered yet!</p>

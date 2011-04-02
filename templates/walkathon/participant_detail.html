@@ -1,0 +1,11 @@
+{% extends "walkathon/base.html" %}
+
+{% block body %}
+{% if p %}
+    <h1>{{p.first_name}} {{p.last_name}}</h1>
+    <p>{{ p.statement }}<p></p>
+    <p>Registered on {{ p.created_on|date:"F j, Y" }}.</p>
+{% else %}
+    <p>Participant not found.</p>
+{% endif %}
+{% endblock %}

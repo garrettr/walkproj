@@ -11,14 +11,18 @@ class Participant(models.Model):
     statement = models.TextField()
     # picture
 
-    def __unicode__(self):
-        return u'%s %s' % (self.first_name, self.last_name)
-
     active = models.BooleanField(default=True)
     # auto time stamp
     # ?
     # created_on = models.DateTimeField(default=datetime.datetime.now())
     created_on = models.DateTimeField()
+
+    def __unicode__(self):
+        return u'%s %s' % (self.first_name, self.last_name)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('walkathon.views.participant_detail', [str(self.id)])
 
 class Sponsor(models.Model):
     first_name = models.CharField(max_length=50)
@@ -33,3 +37,7 @@ class Sponsor(models.Model):
 
     def __unicode__(self):
         return u'%s %s' % (self.first_name, self.last_name)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('walkathon.views.sponsor_detail', [str(self.id)])

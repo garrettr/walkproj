@@ -1,0 +1,11 @@
+{% extends "walkathon/base.html" %}
+
+{% block body %}
+{% if s %}
+    <h1>{{s.first_name}} {{s.last_name}}</h1>
+    <p>{{ s.statement }}<p></p>
+    <p>Registered on {{ s.created_on|date:"F j, Y" }}.</p>
+{% else %}
+    <p>Sponsor not found.</p>
+{% endif %}
+{% endblock %}
