@@ -8,8 +8,10 @@ def home(request):
     Have links for donating and registering to walk.
     '''
     recent_participants = Participant.objects.all().order_by('created_on')[:5]
+    recent_sponsors = Sponsor.objects.all().order_by('created_on')[:5]
     return render_to_response('walkathon/home.html', 
-            {'recent_participants': recent_participants})
+            {'recent_participants': recent_participants,
+                'recent_sponsors': recent_sponsors})
 
 def participant_detail(request, pid):
     '''

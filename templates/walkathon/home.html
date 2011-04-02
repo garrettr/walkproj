@@ -10,8 +10,20 @@
     {% for p in recent_participants %}
     <li><a href="{{p.get_absolute_url}}">{{p.first_name}} {{p.last_name}}</a></li>
     {% endfor %}
+    </ul>
 {% else %}
 <p>Nobody's registered yet!</p>
+{% endif %}
+
+<h2>Recent Sponsorships:</h2>
+{% if recent_sponsors %}
+    <ul>
+        {% for s in recent_sponsors %}
+        <li><a href="{{s.get_absolute_url}}">{{s.first_name}} {{s.last_name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>Nobody's sponsored anybody yet!</p>
 {% endif %}
 
 {% endblock %}
