@@ -1,0 +1,8 @@
+{% extends "walkathon/base.html" %}
+
+{% block body %}
+<h1>Thanks!</h1>
+<p>Thanks for sponsoring {{s.is_sponsoring.first_name}}, {{ s.first_name }}.</p>
+<p>Useful information for you...</p>
+<a href="/walk/">Back to the Walkathon Home</a>
+{% endblock %}
